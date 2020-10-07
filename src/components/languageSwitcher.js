@@ -1,15 +1,21 @@
 import React, { useState, Fragment } from "react";
 import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
+import actions from "store/actions";
+import languages from "constants/localization";
 
-const LanguageSwitcher = () => {
+export default () => {
+  // hooks
   const { t, i18n } = useTranslation();
   const [visible, setVisible] = useState(false);
-
+  const dispatch = useDispatch();
+  // actions
+  const changeLanguage = (payload) => dispatch(actions.localization.change(payload));
   const {
     options: { resources },
     language,
   } = i18n;
-  const options = Object.keys(resources).filter((lng) => lng !== language);
+  const options = Object.values(languages).filter((lng) => lng.code !== language);
 
   return (
     <div>
@@ -45,17 +51,17 @@ const LanguageSwitcher = () => {
               aria-labelledby='options-menu'
             >
               {options.map((lng) => (
-                <Fragment key={lng}>
+                <Fragment key={lng.code}>
                   <div className='py-1'>
                     <a
                       onClick={() => {
-                        i18n.changeLanguage(lng);
+                        changeLanguage({ lng, i18n });
                         setVisible(false);
                       }}
                       className='block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900 text-center uppercase cursor-pointer'
                       role='menuitem'
                     >
-                      {lng}
+                      {lng.code}
                     </a>
                   </div>
                   <div className='border-t border-gray-100'></div>
@@ -68,5 +74,3 @@ const LanguageSwitcher = () => {
     </div>
   );
 };
-
-export default LanguageSwitcher;

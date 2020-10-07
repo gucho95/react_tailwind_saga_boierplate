@@ -1,9 +1,8 @@
 import { combineReducers } from "redux";
 import users from "./_example";
 import admin from "./admin";
-// reducers
+import localization from "./localization";
+
 export const initialState = { data: null, loaded: false, failed: false };
 
-const RootReducer = combineReducers({ users, admin });
-
-export default RootReducer;
+export default combineReducers({ users, admin, localization });

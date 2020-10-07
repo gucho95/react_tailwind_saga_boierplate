@@ -21,7 +21,7 @@ export default () => {
     (error) => {
       const response = error.response.data;
       if (response.code === 401) {
-        store.dispatch({ type: "o".SUCCES, payload: null });
+        store.dispatch({ type: "o".SUCCESS, payload: null });
       }
       return Promise.reject(response);
     }

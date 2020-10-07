@@ -3,6 +3,7 @@ import { websiteRoutes } from "routers/website";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { LanguageSwitcher } from "components";
+import { formatDate } from "utils/dateFunctions";
 
 export default () => {
   const { t, i18n } = useTranslation();
@@ -32,6 +33,7 @@ export default () => {
             />
           ))}
         </div>
+        <span className='text-white'>{formatDate(Date.now())}</span>
         <LanguageSwitcher />
       </div>
     </nav>

@@ -2,7 +2,7 @@ const generate = (actionName) => ({
   WATCH: `WATCH__${actionName}`,
   LOAD: `LOAD__${actionName}`,
   FAIL: `FAIL__${actionName}`,
-  SUCCES: `SUCCESS__${actionName}`,
+  SUCCESS: `SUCCESS__${actionName}`,
   RESET: `RESET__${actionName}`,
 });
 
@@ -14,6 +14,7 @@ export const generateCrud = ({ actionName }) => ({
   REMOVE: generate(`REMOVE__${actionName}`),
 });
 
+export const CHANGE_LANGUAGE = "CHANGE_LANGUAGE";
 export const USERS = generateCrud({ actionName: "USERS" });
 
 export const ADMIN = {

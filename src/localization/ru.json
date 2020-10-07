@@ -1,5 +1,6 @@
 {
   "translation": {
+    "users": "Ползователи",
     "refresh": "Обновить страницу",
     "wents_wrong": "Что-то пошло не так ։(",
     "page_not_found": "Страница не найдена",
@@ -36,7 +37,7 @@
     "director": "Режиссёр",
     "producer": "Продюсер",
     "writers": "Сценарист",
-    "logout": "Log out",
+    "logout": "Выйти",
     "settings": "Settings",
     "cover_photos": "Cover Photos",
     "domain": "Domain",

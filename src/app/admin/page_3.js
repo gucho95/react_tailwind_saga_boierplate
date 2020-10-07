@@ -2,10 +2,13 @@ import React from "react";
 
 export default () => {
   return (
-    <form className='max-w-5xl  border-2 border-red-400 mx-auto '>
+    <form className='max-w-5xl   mx-auto '>
       <div className='flex flex-wrap -mx-3 mb-6'>
         <div className='w-full md:w-1/2 px-3 mb-6 md:mb-0'>
-          <label className='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' for='grid-first-name'>
+          <label
+            className='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'
+            htmlFor='grid-first-name'
+          >
             First Name
           </label>
           <input
@@ -17,7 +20,10 @@ export default () => {
           <p className='text-red-500 text-xs italic'>Please fill out this field.</p>
         </div>
         <div className='w-full md:w-1/2 px-3'>
-          <label className='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' for='grid-last-name'>
+          <label
+            className='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'
+            htmlFor='grid-last-name'
+          >
             Last Name
           </label>
           <input
@@ -30,7 +36,7 @@ export default () => {
       </div>
       <div className='flex flex-wrap -mx-3 mb-6'>
         <div className='w-full px-3'>
-          <label className='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' for='grid-password'>
+          <label className='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' htmlFor='grid-password'>
             Password
           </label>
           <input
@@ -44,7 +50,7 @@ export default () => {
       </div>
       <div className='flex flex-wrap -mx-3 mb-2'>
         <div className='w-full md:w-1/3 px-3 mb-6 md:mb-0'>
-          <label className='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' for='grid-city'>
+          <label className='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' htmlFor='grid-city'>
             City
           </label>
           <input
@@ -55,7 +61,7 @@ export default () => {
           />
         </div>
         <div className='w-full md:w-1/3 px-3 mb-6 md:mb-0'>
-          <label className='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' for='grid-state'>
+          <label className='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' htmlFor='grid-state'>
             State
           </label>
           <div className='relative'>
@@ -75,7 +81,7 @@ export default () => {
           </div>
         </div>
         <div className='w-full md:w-1/3 px-3 mb-6 md:mb-0'>
-          <label className='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' for='grid-zip'>
+          <label className='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' htmlFor='grid-zip'>
             Zip
           </label>
           <input

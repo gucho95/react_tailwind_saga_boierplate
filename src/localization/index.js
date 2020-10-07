@@ -1,5 +1,7 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
+import { getCurrentLocale } from "utils/localStorage";
+// translations
 import hy from "./hy";
 import ru from "./ru";
 import en from "./en";
@@ -13,7 +15,7 @@ i18n
     resources: { en, ru, hy },
     lowerCaseLng: true,
     fallbackLng: "en",
-    lng: "ru",
+    lng: getCurrentLocale()?.code || "en",
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },

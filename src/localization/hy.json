@@ -1,5 +1,6 @@
 {
   "translation": {
+    "users": "Օգտատերեր",
     "refresh": "Թարմացնել էջը",
     "wents_wrong": "Ինչ որ բան այն չէ ։(",
     "page_not_found": "Էջը չի գտնվել",
@@ -36,7 +37,7 @@
     "director": "Ռեժիսոր",
     "producer": "Պրոդյուսեր",
     "writers": "Սցենարիստներ",
-    "logout": "Log out",
+    "logout": "Դուրս գալ",
     "settings": "Settings",
     "cover_photos": "Cover Photos",
     "domain": "Domain",

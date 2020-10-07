@@ -1,19 +1,34 @@
-import React, { useState, useEffect } from "react";
-import { Icons } from "components";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Icons, LanguageSwitcher } from "components";
+import { useHistory } from "react-router-dom";
 import { adminRoutes } from "routers/admin";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
+const MenuItem = ({ children, onClick, pathname, route }) => (
+  <li
+    className={`w-full whitespace-no-wrap truncate p-2 text-white transition-all duration-100 cursor-pointer hover:bg-white hover:text-black   ${
+      route.path === pathname ? "bg-black" : ""
+    }`}
+    key={route.path}
+    onClick={onClick}
+    children={children}
+  />
+);
 
 export default ({ onLogout }) => {
+  const { t, i18n } = useTranslation();
   const [collapsed, setCollapsed] = useState(false);
   const { pathname } = useLocation();
+  const history = useHistory();
 
-  useEffect(() => {
-    setCollapsed(false);
-  }, [pathname]);
+  // uncomment this useEffect to close sidebar on url change
+  // useEffect(() => {
+  //   setCollapsed(false);
+  // }, [pathname]);
 
   return (
-    <div className='h-screen top-0 left-0 flex items-start '>
+    <div className='h-screen sticky top-0 left-0 flex items-start '>
       <div
         className={`transition-all   duration-300 ease-in-out  h-full overflow-hidden whitespace-no-wrap shadow-xl bg-teal-500  ${
           collapsed ? "w-64" : "w-0"
@@ -21,28 +36,26 @@ export default ({ onLogout }) => {
       >
         <ul className='flex flex-col text-center w-64 '>
           <li className='text-center flex justify-center my-4 '>
-            <Icons.User className='rounded w-20 border-2  text-white p-2 shadow-xl' />
+            <Icons.User className='rounded w-16 border-2  text-white p-2 shadow-xl' />
           </li>
-          <li>
-            <hr />
-          </li>
-          {adminRoutes.map(
-            (route) =>
-              route.isMenuItem && (
-                <li
-                  key={route.path}
-                  className={`w-full py-2 text-white border-white  ${route.path === pathname ? "bg-black" : ""}`}
-                >
-                  <Link to={route.path} children={route.t_key} className='block' />
-                </li>
-              )
-          )}
-          <li
-            onClick={onLogout}
-            children='loguot'
-            className='cursor-pointer w-full py-2  text-white hover:bg-black-200'
-          />
+
+          {adminRoutes.map((route) => {
+            const isMenuItem = route.isMenuItem;
+            const isLogoutItem = route.props?.logout;
+            return isMenuItem ? (
+              <MenuItem
+                key={route.path}
+                onClick={isLogoutItem ? onLogout : () => history.push(route.path)}
+                children={t(route.t_key)}
+                pathname={pathname}
+                route={route}
+              />
+            ) : null;
+          })}
         </ul>
+        <div className='flex justify-center mt-16 w-64'>
+          <LanguageSwitcher />
+        </div>
       </div>
       <button className={`mt-4 ml-4 focus:outline-none `}>
         {collapsed ? (
