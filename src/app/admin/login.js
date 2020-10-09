@@ -5,6 +5,8 @@ import { withRouter } from "react-router-dom";
 import { isNotAuth } from "utils/authWrapper";
 import { useTranslation } from "react-i18next";
 
+const FB = window.FB;
+
 const onSubmit = ({ formRef, event, login }) => {
   event.preventDefault();
   const form = formRef.current;
@@ -19,14 +21,16 @@ const Login = ({ history }) => {
   const { t, i18n } = useTranslation();
 
   const login = (data) =>
-    dispatch(actions.admin.login({ ...data, afterSuccess: () => history.push("/admin/dashboard/users") }));
+    dispatch(actions.auth.login({ ...data, afterSuccess: () => history.push("/admin/dashboard/users") }));
+  const facebook = {
+    getLoginStatus: () => dispatch(actions.auth.facebookGetLoginStatus()),
+    login: () => dispatch(actions.auth.facebookLogin()),
+    logout: () => dispatch(actions.auth.facebookLogout()),
+    me: () => dispatch(actions.auth.facebookMe()),
+  };
 
   useEffect(() => {
-    const FB = window.FB;
-    FB.getLoginStatus(function (response) {
-      console.log(response);
-      // statusChangeCallback(response);
-    });
+    facebook.getLoginStatus();
   }, []);
 
   return (
@@ -65,19 +69,11 @@ const Login = ({ history }) => {
           >
             {t("login")}
           </button>
-          <div
-            className='fb-login-button'
-            data-size='medium'
-            data-button-type='login_with'
-            data-layout='rounded'
-            data-auto-logout-link='false'
-            data-use-continue-as='false'
-            data-width=''
-          >
-            Login
-          </div>
         </div>
       </form>
+      <button onClick={facebook.login} children={"Facebook Login"} />
+      <button onClick={facebook.logout} children={"Facebook logout"} />
+      <button onClick={facebook.me} children='Me' />
     </div>
   );
 };

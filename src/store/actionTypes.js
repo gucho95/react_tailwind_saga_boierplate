@@ -21,3 +21,10 @@ export const ADMIN = {
   LOGIN: generate("ADMIN_LOGIN"),
   LOGOUT: generate("ADMIN_LOGOUT"),
 };
+
+export const FACEBOOK_AUTH = {
+  LOGIN: generate("FACEBOOK_LOGIN"),
+  LOGOUT: generate("FACEBOOK_LOGOUT"),
+  CHECK_STATUS: generate("FACEBOOK_CHECK_STATUS"),
+  ME: generate("FACEBOOK_ME"),
+};

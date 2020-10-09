@@ -8,7 +8,7 @@ import { Sidebar } from "components";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
-  const logout = () => dispatch(actions.admin.logout());
+  const logout = () => dispatch(actions.auth.logout());
 
   return (
     <div className='flex items-start'>
