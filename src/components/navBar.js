@@ -7,6 +7,7 @@ import { formatDate } from "utils/dateFunctions";
 
 export default () => {
   const { t, i18n } = useTranslation();
+
   return (
     <nav className=' bg-teal-500 p-6 flex'>
       <div className='text-white     w-2/12 flex items-center'>

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import actions from "store/actions";
 import { useDispatch } from "react-redux";
 import { withRouter } from "react-router-dom";
@@ -20,6 +20,14 @@ const Login = ({ history }) => {
 
   const login = (data) =>
     dispatch(actions.admin.login({ ...data, afterSuccess: () => history.push("/admin/dashboard/users") }));
+
+  useEffect(() => {
+    const FB = window.FB;
+    FB.getLoginStatus(function (response) {
+      console.log(response);
+      // statusChangeCallback(response);
+    });
+  }, []);
 
   return (
     <div className='w-full  flex flex-col items-center mt-48'>
@@ -57,6 +65,17 @@ const Login = ({ history }) => {
           >
             {t("login")}
           </button>
+          <div
+            className='fb-login-button'
+            data-size='medium'
+            data-button-type='login_with'
+            data-layout='rounded'
+            data-auto-logout-link='false'
+            data-use-continue-as='false'
+            data-width=''
+          >
+            Login
+          </div>
         </div>
       </form>
     </div>
