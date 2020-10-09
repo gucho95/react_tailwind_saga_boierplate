@@ -1,7 +1,8 @@
 import { ADMIN } from "../actionTypes";
-import { initialState } from ".";
+import { initialState } from "./_generate";
 const { LOGIN, LOGOUT } = ADMIN;
 
+// custom reducer
 export default (state = initialState, action) => {
   const { type, response } = action;
   switch (true) {

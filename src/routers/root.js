@@ -6,7 +6,6 @@ const AdminDashboard = withLazy(import("app/admin"));
 
 export const dashboardPath = "/admin/dashboard";
 
-// fix admin panel routes
 export const RootRoutes = [
   {
     id: 1,

@@ -12,7 +12,6 @@ const generateWorker = ({ payload, actionType, service }) =>
     try {
       yield put({ type: LOAD });
       const response = service ? yield call(service, payload) : payload;
-      payload.beforeSuccess && payload.beforeSuccess();
       yield put({ type: SUCCESS, response });
       payload.afterSuccess && payload.afterSuccess();
     } catch (error) {

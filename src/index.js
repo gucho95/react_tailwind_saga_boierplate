@@ -5,6 +5,7 @@ import * as serviceWorker from "./serviceWorker";
 import Provider from "./store/config";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistor } from "store/config";
+import ErrorBoundary from "components/_errorBoundary";
 import "./styles/tailwind.output.css";
 import "./styles/index.scss";
 // import i18n (needs to be bundled ;))
@@ -18,7 +19,9 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider>
       <PersistGate persistor={persistor}>
-        <App />
+        <ErrorBoundary>
+          <App />
+        </ErrorBoundary>
       </PersistGate>
     </Provider>
   </React.StrictMode>,
