@@ -75,7 +75,7 @@ const Login = ({ history }) => {
         </div>
       </form>
       <Facebook.Login />
-      <Facebook.LoginStatus />
+      {/* <Facebook.LoginStatus /> */}
 
       {/* <button onClick={facebook.login} children={"Facebook Login"} />
       <button onClick={facebook.logout} children={"Facebook logout"} />

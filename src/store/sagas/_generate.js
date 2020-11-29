@@ -12,12 +12,10 @@ const generateWorker = ({ payload, actionType, service }) =>
     try {
       yield put({ type: LOAD });
       const response = service ? yield call(service, payload) : payload;
-      console.log("response", response);
       yield put({ type: SUCCESS, response });
-      payload.afterSuccess && payload.afterSuccess();
+      payload.afterSuccess && payload.afterSuccess({ response });
     } catch (error) {
-      console.log("error", error);
       yield put({ type: FAIL });
-      payload.afterFail && payload.afterFail();
+      payload.afterFail && payload.afterFail({ error });
     }
   })();

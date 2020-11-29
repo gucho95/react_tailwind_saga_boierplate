@@ -3,7 +3,7 @@ import React from 'react';
 import { FacebookProvider, Status, LoginButton } from 'react-facebook';
 const { REACT_APP_FACEBOOK_APP_ID } = process.env;
 
-export const Provider = ({ children }) => <FacebookProvider appId={REACT_APP_FACEBOOK_APP_ID} children={children} />
+export const Provider = (props) => <FacebookProvider appId={REACT_APP_FACEBOOK_APP_ID} children={props.children} />
 
 export const LoginStatus = () => {
     return (
@@ -24,17 +24,11 @@ export const Login = ({ onCompleted, onError }) => {
     return (
         <Provider>
             <LoginButton
+                scope="email"
                 onCompleted={(data) => console.log(data)}
                 onError={(err) => console.error(err)}
             >
-                {({ loading, handleClick, error, data }) => (
-                    <span onClick={handleClick}>
-                        Login via Facebook
-                        {loading && (
-                            <span>Loading...</span>
-                        )}
-                    </span>
-                )}
+                <span>Login via Facebook</span>
             </LoginButton>
         </Provider>
     )

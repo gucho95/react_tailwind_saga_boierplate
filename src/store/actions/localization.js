@@ -3,7 +3,6 @@ import moment from "moment";
 
 export default {
   change: ({ lng, i18n }) => {
-    console.log({ lng });
     // set moment locale on language change
     moment.locale(lng.locale);
     // set i18n language
