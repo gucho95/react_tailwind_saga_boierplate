@@ -1,15 +1,17 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import withLazy from "hocs/withLazy";
+
 const Website = withLazy(import("app/website"));
 const AdminDashboard = withLazy(import("app/admin"));
 
-export const dashboardPath = "/admin/dashboard";
+export const baseUrl = "/admin/dashboard";
 
+// declare root routes
 export const RootRoutes = [
   {
     id: 1,
-    path: dashboardPath,
+    path: baseUrl,
     exact: false,
     t_key: "dashboard",
     component: AdminDashboard,

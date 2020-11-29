@@ -9,9 +9,6 @@ export const generateWatcher = ({ actionType, service, take = takeLeading }) =>
 const generateWorker = ({ payload, actionType, service }) =>
   (function* () {
     const { LOAD, SUCCESS, FAIL } = actionType;
-    console.log("service", service);
-    console.log("LOAD", LOAD);
-    console.log("payload", payload);
     try {
       yield put({ type: LOAD });
       const response = service ? yield call(service, payload) : payload;

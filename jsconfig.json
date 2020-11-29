@@ -5,15 +5,37 @@
     "baseUrl": "src"
   },
   "paths": {
-    "constants/*": ["./constants/*"],
-    "assets/*": ["./assets/*"],
-    "app/*": ["./app/*"],
-    "store/*": ["./store/*"],
-    "components/*": ["./components/*"],
-    "utils/*": ["./utils/*"],
-    "routes/*": ["./routes/*"],
-    "hooks/*": ["./hooks/*"],
-    "hocs/*": ["./hocs/*"]
+    "constants/*": [
+      "./constants/*"
+    ],
+    "assets/*": [
+      "./assets/*"
+    ],
+    "app/*": [
+      "./app/*"
+    ],
+    "store/*": [
+      "./store/*"
+    ],
+    "components/*": [
+      "./components/*"
+    ],
+    "utils/*": [
+      "./utils/*"
+    ],
+    "routes/*": [
+      "./routes/*"
+    ],
+    "hooks/*": [
+      "./hooks/*"
+    ],
+    "hocs/*": [
+      "./hocs/*"
+    ]
   },
-  "exclude": ["node_modules", "bulild", ".vscode"]
+  "exclude": [
+    "node_modules",
+    "bulild",
+    ".vscode"
+  ]
 }

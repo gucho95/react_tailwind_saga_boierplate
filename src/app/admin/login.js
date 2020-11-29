@@ -4,8 +4,9 @@ import { useDispatch } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { isNotAuth } from "utils/authWrapper";
 import { useTranslation } from "react-i18next";
+import Facebook from 'components/facebook'
 
-const FB = window.FB;
+
 
 const onSubmit = ({ formRef, event, login }) => {
   event.preventDefault();
@@ -16,12 +17,10 @@ const onSubmit = ({ formRef, event, login }) => {
 };
 
 const Login = ({ history }) => {
+
   const dispatch = useDispatch();
   const formRef = useRef(null);
   const { t, i18n } = useTranslation();
-
-  const login = (data) =>
-    dispatch(actions.auth.login({ ...data, afterSuccess: () => history.push("/admin/dashboard/users") }));
   const facebook = {
     getLoginStatus: () => dispatch(actions.auth.facebookGetLoginStatus()),
     login: () => dispatch(actions.auth.facebookLogin()),
@@ -29,9 +28,10 @@ const Login = ({ history }) => {
     me: () => dispatch(actions.auth.facebookMe()),
   };
 
-  useEffect(() => {
-    facebook.getLoginStatus();
-  }, []);
+  const login = (data) =>
+    dispatch(actions.auth.login({ ...data, afterSuccess: () => history.push("/admin/dashboard/users") }));
+
+
 
   return (
     <div className='w-full  flex flex-col items-center mt-48'>
@@ -49,6 +49,8 @@ const Login = ({ history }) => {
             id='username'
             type='text'
             placeholder='Username'
+            autoComplete='username'
+
           />
         </div>
         <div className='mb-6'>
@@ -60,6 +62,7 @@ const Login = ({ history }) => {
             id='password'
             type='password'
             placeholder='******************'
+            autoComplete='current-password'
           />
         </div>
         <div className='flex justify-center'>
@@ -71,9 +74,12 @@ const Login = ({ history }) => {
           </button>
         </div>
       </form>
-      <button onClick={facebook.login} children={"Facebook Login"} />
+      <Facebook.Login />
+      <Facebook.LoginStatus />
+
+      {/* <button onClick={facebook.login} children={"Facebook Login"} />
       <button onClick={facebook.logout} children={"Facebook logout"} />
-      <button onClick={facebook.me} children='Me' />
+      <button onClick={facebook.me} children='Me' /> */}
     </div>
   );
 };

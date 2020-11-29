@@ -43,6 +43,6 @@ export default () => {
       </table>
     </div>
   ) : (
-    <Loader.Absolute />
-  );
+      <Loader.Absolute />
+    );
 };
