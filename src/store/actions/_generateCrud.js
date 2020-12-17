@@ -1,4 +1,3 @@
-
 export default ({ actionType }) => {
   const { FIND, CREATE, REMOVE, UPDATE, FIND_ONE } = actionType;
   return {

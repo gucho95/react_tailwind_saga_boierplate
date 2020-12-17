@@ -1,5 +1,5 @@
-import React from "react";
-import Icons from "./icons";
+import React from 'react';
+import Icons from './icons';
 
 // define your loader  here
 const LoaderBody = () => <Icons.Loader className='w-16 text-black animate-spin  ' />;
@@ -16,7 +16,6 @@ const Absolute = () => (
       <LoaderBody />
     </div>
   </div>
-
 );
 
 export default { Absolute, Static };

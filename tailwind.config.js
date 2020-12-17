@@ -5,15 +5,16 @@ module.exports = {
   },
   purge: [],
   theme: {
+    backgroundColor: (theme) => ({
+      ...theme('colors'),
+      primary: '#03a9f4',
+      secondary: '#ffed4a',
+      danger: '#e3342f',
+    }),
     container: {
       center: true,
     },
-    extend: {
-      width: {
-        inherit: "inherit",
-      },
-    },
   },
   variants: {},
-  plugins: [require("tailwindcss"), require("autoprefixer")],
+  plugins: [require('tailwindcss'), require('autoprefixer')],
 };

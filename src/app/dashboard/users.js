@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
-import actions from "store/actions";
-import selectors from "store/selectors";
-import { useDispatch, useSelector } from "react-redux";
-import { Loader } from "components";
+import React, { useEffect } from 'react';
+import actions from 'store/actions';
+import selectors from 'store/selectors';
+import { useDispatch, useSelector } from 'react-redux';
+import { Loader } from 'components';
 
 export default () => {
   const dispatch = useDispatch();
@@ -25,17 +25,20 @@ export default () => {
       </thead>
       <tbody>
         {loaded ? (
-          !failed ?
+          !failed ? (
             rows.map((record) => (
               <tr key={record.id}>
                 <td className='border px-4 py-2' children={record.name} />
                 <td className='border px-4 py-2' children={record.email} />
                 <td className='border px-4 py-2' children={record.gender} />
               </tr>
-            )) : 'failed'
+            ))
+          ) : (
+            'failed'
+          )
         ) : (
-            <Loader.Absolute />
-          )}
+          <Loader.Absolute />
+        )}
       </tbody>
     </table>
   );

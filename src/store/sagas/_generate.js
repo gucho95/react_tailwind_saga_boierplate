@@ -1,4 +1,4 @@
-import { takeLeading, put, call } from "redux-saga/effects";
+import { takeLeading, put, call } from 'redux-saga/effects';
 
 export const generateWatcher = ({ actionType, service, take = takeLeading }) =>
   function* () {

@@ -1,4 +1,4 @@
-const key = "admin";
+const key = 'dashboard';
 
 export default (state) => ({
   loaded: state[key].loaded,

@@ -1,15 +1,15 @@
-import React from "react";
-import { websiteRoutes } from "routers/website";
-import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
-import { LanguageSwitcher } from "components";
-import { formatDate } from "utils/dateFunctions";
+import React from 'react';
+import { websiteRoutes } from 'routers/website';
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { LanguageSwitcher } from 'components';
+import { formatDate } from 'utils/dateFunctions';
 
 export default () => {
   const { t, i18n } = useTranslation();
 
   return (
-    <nav className=' bg-teal-500 p-6 flex'>
+    <nav className='bg-primary p-6 flex'>
       <div className='text-white     w-2/12 flex items-center'>
         <svg
           className='fill-current h-8 w-8 mr-2'

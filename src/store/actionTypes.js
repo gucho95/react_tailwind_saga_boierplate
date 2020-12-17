@@ -1,9 +1,9 @@
 const generate = (actionName) => ({
-  WATCH: `WATCH__${actionName}`,
-  LOAD: `LOAD__${actionName}`,
-  FAIL: `FAIL__${actionName}`,
-  SUCCESS: `SUCCESS__${actionName}`,
-  RESET: `RESET__${actionName}`,
+  WATCH: `${actionName}__WATCH`,
+  LOAD: `${actionName}__LOAD`,
+  FAIL: `${actionName}__FAIL`,
+  SUCCESS: `${actionName}__SUCCESS`,
+  RESET: `${actionName}__RESET`,
 });
 
 export const generateCrud = ({ actionName }) => ({
@@ -14,17 +14,17 @@ export const generateCrud = ({ actionName }) => ({
   REMOVE: generate(`REMOVE__${actionName}`),
 });
 
-export const CHANGE_LANGUAGE = "CHANGE_LANGUAGE";
-export const USERS = generateCrud({ actionName: "USERS" });
+export const CHANGE_LANGUAGE = 'CHANGE_LANGUAGE';
+export const USERS = generateCrud({ actionName: 'USERS' });
 
 export const ADMIN = {
-  LOGIN: generate("ADMIN_LOGIN"),
-  LOGOUT: generate("ADMIN_LOGOUT"),
+  LOGIN: generate('ADMIN_LOGIN'),
+  LOGOUT: generate('ADMIN_LOGOUT'),
 };
 
 export const FACEBOOK_AUTH = {
-  LOGIN: generate("FACEBOOK_LOGIN"),
-  LOGOUT: generate("FACEBOOK_LOGOUT"),
-  CHECK_STATUS: generate("FACEBOOK_CHECK_STATUS"),
-  ME: generate("FACEBOOK_ME"),
+  LOGIN: generate('FACEBOOK_LOGIN'),
+  LOGOUT: generate('FACEBOOK_LOGOUT'),
+  CHECK_STATUS: generate('FACEBOOK_CHECK_STATUS'),
+  ME: generate('FACEBOOK_ME'),
 };

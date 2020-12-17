@@ -1,6 +1,6 @@
-import { combineReducers } from "redux";
-import users from "./_example";
-import admin from "./admin";
-import localization from "./localization";
+import { combineReducers } from 'redux';
+import users from './_example';
+import dashboard from './dashboard';
+import localization from './localization';
 
-export default combineReducers({ users, admin, localization });
+export default combineReducers({ users, dashboard, localization });

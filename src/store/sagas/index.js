@@ -1,6 +1,6 @@
-import { all, fork } from "redux-saga/effects";
-import * as users from "./_example";
-import * as auth from "./auth";
+import { all, fork } from 'redux-saga/effects';
+import * as users from './_example';
+import * as auth from './auth';
 
 const combinedSagas = {
   ...users,

@@ -1,5 +1,5 @@
-import client from "../client";
-import { usersApi as api } from "store/endpoints";
+import client from '../client';
+import { usersApi as api } from 'store/endpoints';
 
 export default {
   find: (payload) => client().get(api, payload),

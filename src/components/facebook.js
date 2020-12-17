@@ -1,41 +1,39 @@
-
 import React from 'react';
-import { FacebookProvider, Status, LoginButton } from 'react-facebook';
+import { FacebookProvider, Status, LoginButton as LoginFacebook } from 'react-facebook';
+import { FacebookLoginButton } from 'react-social-login-buttons';
 const { REACT_APP_FACEBOOK_APP_ID } = process.env;
 
-export const Provider = (props) => <FacebookProvider appId={REACT_APP_FACEBOOK_APP_ID} children={props.children} />
+export const Provider = (props) => (
+  <FacebookProvider appId={REACT_APP_FACEBOOK_APP_ID} children={props.children} />
+);
 
 export const LoginStatus = () => {
-    return (
-        <Provider>
-            <Status>
-                {({ loading, status }) => (
-                    <div>
-                        {loading}
-                        {status}
-                    </div>
-                )}
-            </Status>
-        </Provider>
-    )
-}
+  return (
+    <Provider>
+      <Status>
+        {({ loading, status }) => (
+          <div>
+            {loading}
+            {status}
+          </div>
+        )}
+      </Status>
+    </Provider>
+  );
+};
 
 export const Login = ({ onCompleted, onError }) => {
-    return (
-        <Provider>
-            <LoginButton
-                scope="email"
-                onCompleted={(data) => console.log(data)}
-                onError={(err) => console.error(err)}
-            >
-                <span>Login via Facebook</span>
-            </LoginButton>
-        </Provider>
-    )
-}
+  return (
+    <Provider>
+      <LoginFacebook scope='email' onCompleted={onCompleted} onError={onError}>
+        <FacebookLoginButton children='Continue with Facebook' />
+      </LoginFacebook>
+    </Provider>
+  );
+};
 
 export default {
-    Provider,
-    Login,
-    LoginStatus
-}
+  Provider,
+  Login,
+  LoginStatus,
+};

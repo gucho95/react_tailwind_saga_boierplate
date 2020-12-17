@@ -1,5 +1,5 @@
-import { ADMIN } from "../actionTypes";
-import { initialState } from "./_generate";
+import { ADMIN } from '../actionTypes';
+import { initialState } from './_generate';
 const { LOGIN, LOGOUT } = ADMIN;
 
 // custom reducer

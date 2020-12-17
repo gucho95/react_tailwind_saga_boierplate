@@ -1,13 +1,13 @@
-import { ADMIN, FACEBOOK_AUTH } from "../actionTypes";
-import { generateWatcher } from "./_generate";
-import services from "store/services";
+import { ADMIN, FACEBOOK_AUTH } from '../actionTypes';
+import { generateWatcher } from './_generate';
+import services from 'store/services';
 
 export const loginSaga = generateWatcher({ actionType: ADMIN.LOGIN });
 export const logoutSaga = generateWatcher({ actionType: ADMIN.LOGOUT });
 
 export const loginFacebookSaga = generateWatcher({
   actionType: FACEBOOK_AUTH.LOGIN,
-  service: services.auth.facebookLogin
+  service: services.auth.facebookLogin,
 });
 
 export const logoutFacebookSaga = generateWatcher({

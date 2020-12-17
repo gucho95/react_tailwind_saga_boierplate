@@ -1,5 +1,5 @@
-import axios from "axios";
-import { store } from "store/config";
+import axios from 'axios';
+import { store } from 'store/config';
 const { REACT_APP_API_ROOT } = process.env;
 
 export default () => {
@@ -21,7 +21,7 @@ export default () => {
     (error) => {
       const response = error.response.data;
       if (response.code === 401) {
-        store.dispatch({ type: "o".SUCCESS, payload: null });
+        store.dispatch({ type: 'o'.SUCCESS, payload: null });
       }
       return Promise.reject(response);
     }

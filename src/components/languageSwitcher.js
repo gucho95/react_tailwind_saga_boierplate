@@ -1,8 +1,8 @@
-import React, { useState, Fragment } from "react";
-import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
-import actions from "store/actions";
-import languages from "constants/localization";
+import React, { useState, Fragment } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+import actions from 'store/actions';
+import { localization } from 'common';
 
 export default () => {
   // hooks
@@ -15,7 +15,7 @@ export default () => {
     options: { resources },
     language,
   } = i18n;
-  const options = Object.values(languages).filter((lng) => lng.code !== language);
+  const options = Object.values(localization).filter((lng) => lng.code !== language);
 
   return (
     <div>

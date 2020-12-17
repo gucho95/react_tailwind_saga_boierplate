@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import { Icons, LanguageSwitcher } from "components";
-import { useHistory } from "react-router-dom";
-import { adminRoutes } from "routers/admin";
-import { useLocation } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+import React, { useState } from 'react';
+import { Icons, LanguageSwitcher } from 'components';
+import { useHistory } from 'react-router-dom';
+import { dashboardRoutes } from 'routers/dashboard';
+import { useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const MenuItem = ({ children, onClick, pathname, route }) => (
   <li
     className={`w-full whitespace-no-wrap truncate p-2 text-white transition-all duration-100 cursor-pointer hover:bg-white hover:text-black   ${
-      route.path === pathname ? "bg-black" : ""
+      route.path === pathname ? 'bg-black' : ''
     }`}
     key={route.path}
     onClick={onClick}
@@ -30,8 +30,8 @@ export default ({ onLogout }) => {
   return (
     <div className='h-screen sticky top-0 left-0 flex items-start '>
       <div
-        className={`transition-all   duration-300 ease-in-out  h-full overflow-hidden whitespace-no-wrap shadow-xl bg-teal-500  ${
-          collapsed ? "w-64" : "w-0"
+        className={`transition-all   duration-300 ease-in-out  h-full overflow-hidden whitespace-no-wrap shadow-xl bg-primary  ${
+          collapsed ? 'w-64' : 'w-0'
         }  `}
       >
         <ul className='flex flex-col text-center w-64 '>
@@ -39,7 +39,7 @@ export default ({ onLogout }) => {
             <Icons.User className='rounded w-16 border-2  text-white p-2 shadow-xl' />
           </li>
 
-          {adminRoutes.map((route) => {
+          {dashboardRoutes.map((route) => {
             const isMenuItem = route.isMenuItem;
             const isLogoutItem = route.props?.logout;
             return isMenuItem ? (

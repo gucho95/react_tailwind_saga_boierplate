@@ -1,11 +1,12 @@
-import { Img } from "react-image";
-import React from "react";
-import { Icons, Loader } from "components";
+import { Img } from 'react-image';
+import React from 'react';
+import { Icons, Loader } from 'components';
 const { REACT_APP_API_ROOT } = process.env;
-const makeUrl = (sources) => sources.map((src) => (!!src ? `${REACT_APP_API_ROOT}/${src}` : <Icons.BrokenImage />));
+const makeUrl = (sources) =>
+  sources.map((src) => (!!src ? `${REACT_APP_API_ROOT}/${src}` : <Icons.BrokenImage />));
 
 // use Dynamic component to handle urls provided by back-end
-const Dynamic = ({ src, fb1, fb2, alt = "", ...props }) => (
+const Dynamic = ({ src, fb1, fb2, alt = '', ...props }) => (
   <Img
     src={makeUrl([src + fb1, fb2])}
     alt={alt}
@@ -16,7 +17,7 @@ const Dynamic = ({ src, fb1, fb2, alt = "", ...props }) => (
 );
 
 // use ImageStatic to handle image urls local/absolute ...
-const Static = ({ src, fb1, fb2, alt = "", ...props }) => {
+const Static = ({ src, fb1, fb2, alt = '', ...props }) => {
   return (
     <Img
       src={[src, fb1, fb2]}

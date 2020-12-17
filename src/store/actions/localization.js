@@ -1,5 +1,5 @@
-import { CHANGE_LANGUAGE } from "../actionTypes";
-import moment from "moment";
+import { CHANGE_LANGUAGE } from '../actionTypes';
+import moment from 'moment';
 
 export default {
   change: ({ lng, i18n }) => {

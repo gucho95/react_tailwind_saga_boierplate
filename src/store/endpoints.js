@@ -1,1 +1,1 @@
-export const usersApi = "users";
+export const usersApi = 'users';
